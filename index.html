@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Oops! Old URL 😅</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #102A43, #1565C0);
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 650px;
+      text-align: center;
+      padding: 50px 30px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      border-radius: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+    }
+
+    .emoji {
+      font-size: 90px;
+      line-height: 1;
+      margin-bottom: 25px;
+      animation: shake 1.8s infinite;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+
+    .message {
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 0.95;
+      margin-bottom: 25px;
+    }
+
+    .old-url {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(0, 0, 0, 0.20);
+      border-radius: 10px;
+      font-size: 14px;
+      margin-bottom: 30px;
+      opacity: 0.85;
+    }
+
+    .countdown {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    #seconds {
+      font-size: 28px;
+      font-weight: bold;
+      color: #CBEEF3;
+    }
+
+    .loader {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.20);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 25px;
+    }
+
+    .loader-bar {
+      height: 100%;
+      width: 100%;
+      background: #F26A8D;
+      transform-origin: left;
+      animation: countdown 15s linear infinite;
+    }
+
+    .hint {
+      margin-top: 25px;
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+
+      10% {
+        transform: rotate(-8deg);
+      }
+
+      20% {
+        transform: rotate(8deg);
+      }
+
+      30% {
+        transform: rotate(-6deg);
+      }
+
+      40% {
+        transform: rotate(6deg);
+      }
+
+      50% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes countdown {
+      from {
+        transform: scaleX(1);
+      }
+
+      to {
+        transform: scaleX(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 40px 20px;
+      }
+
+      .emoji {
+        font-size: 70px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .message {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="emoji">🤦‍♂️</div>
+
+    <h1>Oops! Old URL, My Friend! 🤭</h1>
+
+    <div class="message">
+      You are using the <strong>old URL</strong>.
+      <br>
+      This page is no longer the correct destination.
+      <br><h3>Ask MIS Team for new url.</h3>
+    </div>
+
+    <div class="old-url">
+      🚨 OLD URL DETECTED
+    </div>
+
+    <div class="countdown">
+      
+      <span id="seconds">15</span>
+      seconds...
+    </div>
+
+    <div class="loader">
+      <div class="loader-bar"></div>
+    </div>
+
+    <div class="hint">
+      _
+    </div>
+
+  </div>
+
+
+  <script>
+
+    // ==========================================
+    // AUTO RELOAD EVERY 15 SECONDS
+    // ==========================================
+
+    const RELOAD_TIME = 15;
+
+    let seconds = RELOAD_TIME;
+
+    const counter = document.getElementById("seconds");
+
+    const countdown = setInterval(function () {
+
+      seconds--;
+
+      counter.textContent = seconds;
+
+      if (seconds <= 0) {
+
+        clearInterval(countdown);
+
+        // Reload the same page
+        window.location.reload();
+
+      }
+
+    }, 1000);
+
+  </script>
+
+</body>
+</html>
